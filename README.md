@@ -52,5 +52,5 @@ python main.py
 ### Run Unit Tests
 
 ```bash
-python -m unittest test_robot.py
+python -m unittest tests.py
 ```
