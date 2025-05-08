@@ -28,8 +28,6 @@ class TestRobot(unittest.TestCase):
         robot.place_robot(0, 0, 'NORTH')
         robot.rotate_robot('RIGHT')
         
-        import pdb
-        pdb.set_trace()
         self.assertEqual(robot.report(), 'Output: 0,0,EAST')
 
     def test_ignore_out_of_bounds(self):

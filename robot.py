@@ -63,9 +63,9 @@ class Robot():
         new_pos_x = self.pos_x
         new_pos_y = self.pos_y
     
-        if self.direction == DIRECTIONS[0] and self.pos_y < 4:
+        if self.direction == DIRECTIONS[0] and self.pos_y < TABLE_HEIGHT-1:
             new_pos_y = self.pos_y + 1
-        elif self.direction == DIRECTIONS[1] and self.pos_x < 4:
+        elif self.direction == DIRECTIONS[1] and self.pos_x < TABLE_WIDTH-1:
             new_pos_x = self.pos_x + 1
         elif self.direction == DIRECTIONS[2] and self.pos_y > 0:
             new_pos_y = self.pos_y - 1
@@ -89,7 +89,7 @@ class Robot():
             return
         
         idx = DIRECTIONS.index(self.direction) - 1 if new_direction == 'LEFT' else DIRECTIONS.index(self.direction) + 1
-        self.direction = DIRECTIONS[idx % 4]
+        self.direction = DIRECTIONS[idx % len(DIRECTIONS)]
         
         self.table[int(self.pos_y)][int(self.pos_x)] = DIRECTIONS_SYMBOLS.get(self.direction)
         
