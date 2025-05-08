@@ -28,7 +28,7 @@ def main():
         elif command in ['LEFT', 'RIGHT']:
             robot.rotate_robot(command)
         elif command == 'REPORT':
-            robot.report()
+            print(robot.report())
         elif command == 'SHOW':
             robot.show_table()
         elif command == 'END':

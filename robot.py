@@ -27,7 +27,7 @@ class Robot():
         return self.pos_x is not None and self.pos_y is not None and self.direction is not None
     
     def is_move_valid(self, new_pos_x, new_pos_y):
-        return new_pos_x in self.table and new_pos_y in self.table[new_pos_x]
+        return new_pos_y in self.table and new_pos_x in self.table[new_pos_y]
     
     def is_pos_taken(self, pos_x, pos_y):
         if not self.is_move_valid(pos_x, pos_y):
@@ -40,17 +40,20 @@ class Robot():
         return False
     
     def place_robot(self, pos_x, pos_y, direction):
-        self.pos_x = int(pos_x)
-        self.pos_y = int(pos_y)
-        self.direction = DIRECTIONS_SYMBOLS.get(direction)
+        pos_x = int(pos_x)
+        pos_y = int(pos_y)
         
-        if self.is_pos_taken(self.pos_x, self.pos_y):
+        if self.is_pos_taken(pos_x, pos_y):
             return
         
-        if self.direction == None:
+        if self.direction in DIRECTIONS:
+            print('Error: Direction is not valid.')
             raise 'Error: Direction is not valid.'
         
-        self.table[int(self.pos_y)][int(self.pos_x)] = self.direction
+        self.table[pos_y][pos_x] =  DIRECTIONS_SYMBOLS.get(direction)
+        self.pos_x = pos_x
+        self.pos_y = pos_y
+        self.direction = direction
 
     def move_robot(self):
         if not self.is_robot_exists():
@@ -95,7 +98,7 @@ class Robot():
             print('Error: No robot/s found.')
             return
         
-        print(f'Output: {self.pos_x},{self.pos_y},{self.direction}')
+        return f'Output: {self.pos_x},{self.pos_y},{self.direction}'
         
     def show_table(self): 
         for row in reversed(range(TABLE_HEIGHT)):
