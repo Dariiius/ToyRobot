@@ -35,3 +35,22 @@ The coordinate (0, 0) is the **southwest** corner of the table.
 
 ```bash
 git clone https://github.com/Dariiius/ToyRobot.git
+```
+
+2. Navigate to the project
+
+```bash
+cd ToyRobot
+```
+
+3. Run the application in the console
+
+```bash
+python main.py
+```
+
+### Run Unit Tests
+
+```bash
+python -m unittest test_robot.py
+```
