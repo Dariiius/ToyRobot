@@ -16,7 +16,10 @@ def main():
         command = input('Enter a command: ')
         
         if command.startswith('PLACE'):
-            robot.place_robot(command.split()[1])
+            try:
+                robot.place_robot(command.split()[1])
+            except Exception as e:
+                print(f'Error: Place command is not valid')
         elif command == 'MOVE':
             robot.move_robot()
         elif command in ['LEFT', 'RIGHT']:
