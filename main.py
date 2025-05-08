@@ -13,11 +13,14 @@ def main():
     robot = Robot()
     
     while True:
-        command = input('Enter a command: ')
+        user_input = input('Enter a command: ')
+        input_arr = user_input.split()
+        command = input_arr[0]
         
-        if command.startswith('PLACE'):
+        if command == 'PLACE':
             try:
-                robot.place_robot(command.split()[1])
+                pos_x, pos_y, direction = input_arr[1].split(',')
+                robot.place_robot(pos_x, pos_y, direction)
             except Exception as e:
                 print(f'Error: Place command is not valid')
         elif command == 'MOVE':
@@ -26,7 +29,7 @@ def main():
             robot.rotate_robot(command)
         elif command == 'REPORT':
             robot.report()
-        elif command == 'SHOW TABLE':
+        elif command == 'SHOW':
             robot.show_table()
         elif command == 'END':
             print('ENDING SIMULATION')

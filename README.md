@@ -13,7 +13,8 @@ This Python application simulates a toy robot that moves on a 5x5 square tableto
 - `LEFT` — Rotate the robot 90 degrees left (counter-clockwise).
 - `RIGHT` — Rotate the robot 90 degrees right (clockwise).
 - `REPORT` — Output the robot’s current position and facing direction.
-- `SHOW TABLE` (Bonus) — Displays a 2D table in the console.
+- `SHOW` (Bonus) — Displays a 2D table in the console.
+- `END` — Exits the console application.
 
 The coordinate (0, 0) is the **southwest** corner of the table.
 

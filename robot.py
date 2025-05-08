@@ -39,15 +39,18 @@ class Robot():
             return True
         return False
     
-    def place_robot(self, position):
-        self.pos_x, self.pos_y, self.direction = position.split(',')
-        self.pos_x = int(self.pos_x)
-        self.pos_y = int(self.pos_y)
+    def place_robot(self, pos_x, pos_y, direction):
+        self.pos_x = int(pos_x)
+        self.pos_y = int(pos_y)
+        self.direction = DIRECTIONS_SYMBOLS.get(direction)
         
         if self.is_pos_taken(self.pos_x, self.pos_y):
             return
         
-        self.table[int(self.pos_y)][int(self.pos_x)] = DIRECTIONS_SYMBOLS.get(self.direction)
+        if self.direction == None:
+            raise 'Error: Direction is not valid.'
+        
+        self.table[int(self.pos_y)][int(self.pos_x)] = self.direction
 
     def move_robot(self):
         if not self.is_robot_exists():
